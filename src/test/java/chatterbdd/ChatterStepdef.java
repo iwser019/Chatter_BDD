@@ -1,3 +1,5 @@
+package chatterbdd;
+
 import chatterbdd.Chatter;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
