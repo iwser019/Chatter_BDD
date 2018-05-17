@@ -1,0 +1,8 @@
+Feature: Chatter
+  In order to talk with someone
+  I want to create a chat program
+
+  Scenario:
+    Given I have a chat program
+    When I try to say nothing
+    Then The program does not understand me
