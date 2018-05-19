@@ -298,4 +298,10 @@ public class ChatterStepdef {
         }
         Assert.assertTrue("Used keyword base doesn't match", ok);
     }
+
+    @Then("^The program should have keyword match for phrase like \"([^\"]*)\"$")
+    public void theProgramShouldHaveKeywordMatchForPhraseLike(String arg0) throws Throwable {
+        Assert.assertTrue("The keyword match for this saying is incorrect or doesn't exist",
+                chatter.hasKeywordMatch(arg0));
+    }
 }
