@@ -1,13 +1,16 @@
 package chatterbdd;
 
 import java.util.HashMap;
+import java.util.Random;
 
 public class Chatter {
 
     private HashMap<String, String> exactMatchBase;
     private HashMap<String, String[]> typicalMatchBase;
+    private Random randomizer;
     // Конструктор
     public Chatter() {
+        randomizer = new Random();
         exactMatchBase = new HashMap<>();
         typicalMatchBase = new HashMap<>();
     }
@@ -109,6 +112,12 @@ public class Chatter {
      * @return Текст ответа
      */
     public String getTypicalMatch(String saying) {
-        return "А почему?";
+        if (saying == null)
+            return null;
+        if (hasTypicalMatch(saying)) {
+            String[] variants = typicalMatchBase.get(saying);
+            return variants[randomizer.nextInt(variants.length - 1)];
+        }
+        return null;
     }
 }
