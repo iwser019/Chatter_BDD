@@ -1,5 +1,7 @@
 package chatterbdd;
 
+import gherkin.lexer.Sr_cyrl;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
@@ -9,6 +11,7 @@ public class Chatter {
     private HashMap<String, String> exactMatchBase;
     private HashMap<String, String[]> typicalMatchBase;
     private ArrayList<Pair<String[], String>> keywordMatchBase;
+    private String[] genericBase;
     private Random randomizer;
     // Конструктор
     public Chatter() {
@@ -16,6 +19,7 @@ public class Chatter {
         exactMatchBase = new HashMap<>();
         typicalMatchBase = new HashMap<>();
         keywordMatchBase = new ArrayList<>();
+        genericBase = new String[0];
     }
 
     /**
@@ -277,7 +281,7 @@ public class Chatter {
      * @param genBase Массив общих реплик
      */
     public void setGenericBase(String[] genBase) {
-
+        this.genericBase = genBase;
     }
 
     /**
