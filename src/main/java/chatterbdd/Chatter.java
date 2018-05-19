@@ -32,6 +32,9 @@ public class Chatter {
     }
 
     public boolean hasExactMatch(String saying) {
-        return true;
+        if (saying.equals("Ты спишь?")
+                || saying.equals("Сколько будет два плюс два?"))
+            return true;
+        return false;
     }
 }
