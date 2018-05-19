@@ -176,7 +176,28 @@ public class Chatter {
      * @return Текст ответа
      */
     public String getExactMatchSub(String saying) {
-        return "Нет";
+        if (saying == null)
+            return null;
+        ArrayList<String> variants = new ArrayList<>();
+        String[] vals = new String[exactMatchBase.values().size()];
+        vals = exactMatchBase.values().toArray(vals);
+        String[] srcWords = splitIntoWords(saying);
+        for (String val : vals) {
+            int wordCount = 0;
+            String[] valWords = splitIntoWords(val);
+            for (String srcWord : srcWords) {
+                for (String valWord : valWords) {
+                    if (srcWord.equals(valWord)) {
+                        wordCount++;
+                    }
+                }
+            }
+            if (wordCount >= 2) {
+                variants.add(val);
+                wordCount = 0;
+            }
+        }
+        return (variants.size() > 0 ? variants.get(randomizer.nextInt(variants.size())) : null);
     }
 
     /**
