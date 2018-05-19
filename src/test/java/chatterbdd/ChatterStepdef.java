@@ -180,6 +180,13 @@ public class ChatterStepdef {
 
     @Then("^The program should have exact match for some words from phrase like \"([^\"]*)\"$")
     public void theProgramShouldHaveExactMatchForSomeWordsFromPhraseLike(String arg0) throws Throwable {
-        Assert.assertTrue("There are no match for this", chatter.hasExactMatchSub(arg0));
+        Assert.assertTrue("There are no match for this, or there are too few matching words",
+                chatter.hasExactMatchSub(arg0));
+    }
+
+    @Then("^The program should not have exact match for some words from phrase like \"([^\"]*)\"$")
+    public void theProgramShouldNotHaveExactMatchForSomeWordsFromPhraseLike(String arg0) throws Throwable {
+        Assert.assertFalse("There's an incorrect match for this",
+                chatter.hasExactMatchSub(arg0));
     }
 }
