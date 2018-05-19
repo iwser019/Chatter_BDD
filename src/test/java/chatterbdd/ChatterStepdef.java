@@ -261,7 +261,7 @@ public class ChatterStepdef {
         );
         kwMatchBase.add(new Pair<>(
                 new String[]{
-                        "блин"
+                        "блин,"
                 },
                 "Я тоже люблю блины"
         ));
@@ -309,5 +309,19 @@ public class ChatterStepdef {
     public void theProgramShouldNotHaveKeywordMatchForPhraseLike(String arg0) throws Throwable {
         Assert.assertFalse("The keyword match for this saying is incorrect",
                 chatter.hasKeywordMatch(arg0));
+    }
+
+    @Then("^The program should give a keyword-based match$")
+    public void theProgramShouldGiveAKeywordBasedMatch() throws Throwable {
+        ArrayList<String> variants = new ArrayList<>();
+        for (Pair<String[], String> pairSrc : kwMatchBase) {
+            variants.add(pairSrc.getY());
+        }
+        boolean ok = false;
+        this.answer = chatter.getKeywordMatch("Кто ты, блин, такой?");
+        for (String str : variants) {
+            ok |= str.equals(this.answer);
+        }
+        Assert.assertTrue("The keyword match is incorrect or doesn't exist", ok);
     }
 }
