@@ -238,4 +238,9 @@ public class ChatterStepdef {
     public void theFirstElementShouldBe(int arg0) throws Throwable {
         Assert.assertEquals(arg0, pair.getX());
     }
+
+    @Then("^The second element should be (\\d+)$")
+    public void theSecondElementShouldBe(int arg0) throws Throwable {
+        Assert.assertEquals(arg0, pair.getY());
+    }
 }
