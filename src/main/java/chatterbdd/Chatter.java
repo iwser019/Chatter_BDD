@@ -237,9 +237,7 @@ public class Chatter {
      * @return Результат проверки
      */
     public boolean hasKeywordMatch(String saying) {
-        if (saying.equals("Я этого не знаю."))
-            return true;
-        return false;
+        return (getKeywordMatch(saying) != null);
     }
 
     /**
@@ -248,6 +246,8 @@ public class Chatter {
      * @return Результат проверки
      */
     public String getKeywordMatch(String saying) {
+        if (saying == null)
+            return null;
         ArrayList<String> variants = new ArrayList<>();
         String[] srcWords = splitIntoWords(saying);
         for (Pair<String[], String> pair : keywordMatchBase) {
