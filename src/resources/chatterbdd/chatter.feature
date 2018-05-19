@@ -1,4 +1,4 @@
-Feature: Chatter
+Feature: Chatter basic functions
   In order to talk with someone
   I want to create a chat program
 
