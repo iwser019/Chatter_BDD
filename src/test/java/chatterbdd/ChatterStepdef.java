@@ -213,4 +213,11 @@ public class ChatterStepdef {
                         "два?"
                 }, chatter.splitIntoWords("Сколько будет два плюс два?")));
     }
+
+    @Then("^The program should not try to split single word$")
+    public void theProgramShouldNotTryToSplitSingleWord() throws Throwable {
+        Assert.assertTrue("The split result doesn't match",
+                Arrays.equals(new String[]{"фывапролджэ"},
+                        chatter.splitIntoWords("фывапролджэ")));
+    }
 }
