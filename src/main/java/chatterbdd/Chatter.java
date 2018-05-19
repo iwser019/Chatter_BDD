@@ -213,10 +213,18 @@ public class Chatter {
         return s.split("[\\s\\t]+");
     }
 
+    /**
+     * Установка базы ключевых слов
+     * @param kwMatchBase Список пар (список слов - фраза)
+     */
     public void setKeywordMatchBase(ArrayList<Pair<String[],String>> kwMatchBase) {
 
     }
 
+    /**
+     * Получение базы ключевых слов
+     * @return Список пар (список слов - фраза)
+     */
     public ArrayList<Pair<String[],String>> getKeywordMatchBase() {
         ArrayList<Pair<String[],String>> kwMatchBase = new ArrayList<>();
         kwMatchBase.add(new Pair<>(
@@ -234,12 +242,22 @@ public class Chatter {
         return kwMatchBase;
     }
 
+    /**
+     * Проверка на соответствие на уровне ключевых слов
+     * @param saying Текст исходной реплики
+     * @return Результат проверки
+     */
     public boolean hasKeywordMatch(String saying) {
         if (saying.equals("Я этого не знаю."))
             return true;
         return false;
     }
 
+    /**
+     * Получение соответствия на уровне ключевых слов
+     * @param saying Текст исходной реплики
+     * @return Результат проверки
+     */
     public String getKeywordMatch(String saying) {
         return "Я тоже люблю блины";
     }
