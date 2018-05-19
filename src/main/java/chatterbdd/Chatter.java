@@ -159,16 +159,31 @@ public class Chatter {
         return null;
     }
 
+    /**
+     * Проверка на соответствие на уровне значимых слов
+     * @param saying Тескт исходной реплики
+     * @return Результат проверки
+     */
     public boolean hasExactMatchSub(String saying) {
         if (saying.equals("Ты спишь? Только честно..."))
             return true;
         return false;
     }
 
+    /**
+     * Получение ответа при соответствии на уровне значимых слов
+     * @param saying Текст исходной реплики
+     * @return Текст ответа
+     */
     public String getExactMatchSub(String saying) {
         return "Нет";
     }
 
+    /**
+     * Разбиение текста на слова
+     * @param s Исходный текст
+     * @return Массив слов
+     */
     public String[] splitIntoWords(String s) {
         if (s == null)
             return new String[]{};
