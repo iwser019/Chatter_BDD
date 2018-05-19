@@ -8,12 +8,14 @@ public class Chatter {
 
     private HashMap<String, String> exactMatchBase;
     private HashMap<String, String[]> typicalMatchBase;
+    private ArrayList<Pair<String[], String>> keywordMatchBase;
     private Random randomizer;
     // Конструктор
     public Chatter() {
         randomizer = new Random();
         exactMatchBase = new HashMap<>();
         typicalMatchBase = new HashMap<>();
+        keywordMatchBase = new ArrayList<>();
     }
 
     /**
@@ -218,7 +220,7 @@ public class Chatter {
      * @param kwMatchBase Список пар (список слов - фраза)
      */
     public void setKeywordMatchBase(ArrayList<Pair<String[],String>> kwMatchBase) {
-
+        this.keywordMatchBase = kwMatchBase;
     }
 
     /**
