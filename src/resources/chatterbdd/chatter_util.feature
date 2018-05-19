@@ -11,3 +11,7 @@ Feature: Utility functions
   Scenario: Null string processing for sentence splitting
     Given I have a chat program
     Then The program should not split a null text
+
+  Scenario: Splitting phrase into a set of words
+    Given I have a chat program
+    Then The program should be able to give correct set of words
