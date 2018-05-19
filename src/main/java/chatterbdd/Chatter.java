@@ -227,7 +227,7 @@ public class Chatter {
         );
         kwMatchBase.add(new Pair<>(
                 new String[]{
-                        "блин"
+                        "блин,"
                 },
                 "Я тоже люблю блины"
         ));
