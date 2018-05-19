@@ -275,4 +275,11 @@ public class Chatter {
     public void setGenericBase(String[] genBase) {
 
     }
+
+    public String[] getGenericBase() {
+        return new String[]{
+                "Ясно...",
+                "Понятно..."
+        };
+    }
 }
