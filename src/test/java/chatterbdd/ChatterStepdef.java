@@ -201,4 +201,16 @@ public class ChatterStepdef {
         }
         Assert.assertTrue("The match is incorrect or doesn't exist", ok);
     }
+
+    @Then("^The program should be able to give correct set of words$")
+    public void theProgramShouldBeAbleToGiveCorrectSetOfWords() throws Throwable {
+        Assert.assertTrue("The split result doesn't match",
+                Arrays.equals(new String[]{
+                        "Сколько",
+                        "будет",
+                        "два",
+                        "плюс",
+                        "два?"
+                }, chatter.splitIntoWords("Сколько будет два плюс два?")));
+    }
 }
