@@ -5,9 +5,11 @@ import java.util.HashMap;
 public class Chatter {
 
     private HashMap<String, String> exactMatchBase;
+    private HashMap<String, String[]> typicalMatchBase;
     // Конструктор
     public Chatter() {
         exactMatchBase = new HashMap<>();
+        typicalMatchBase = new HashMap<>();
     }
 
     /**
@@ -68,7 +70,7 @@ public class Chatter {
      * @param typMatchBase Словарь фраз и соответствующих списков ответов
      */
     public void setTypicalMatchBase(HashMap<String,String[]> typMatchBase) {
-
+        this.typicalMatchBase = typMatchBase;
     }
 
     /**
