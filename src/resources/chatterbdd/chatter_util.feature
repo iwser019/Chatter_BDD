@@ -15,3 +15,7 @@ Feature: Utility functions
   Scenario: Splitting phrase into a set of words
     Given I have a chat program
     Then The program should be able to give correct set of words
+
+  Scenario: Single word processing
+    Given I have a chat program
+    Then The program should not try to split single word
