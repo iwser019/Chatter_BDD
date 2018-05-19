@@ -160,6 +160,8 @@ public class Chatter {
     }
 
     public boolean hasExactMatchSub(String saying) {
-        return true;
+        if (saying.equals("Ты спишь? Только честно..."))
+            return true;
+        return false;
     }
 }
