@@ -349,4 +349,18 @@ public class ChatterStepdef {
         Assert.assertTrue("Arrays don't match",
                 Arrays.equals(genBase, chatter.getGenericBase()));
     }
+
+    @Then("^The program should give a correct typical answer$")
+    public void theProgramShouldGiveACorrectTypicalAnswer() throws Throwable {
+        boolean ok  = false;
+        String[] variants = typMatchBase.get(saying);
+        if (variants == null)
+            variants = new String[0];
+        this.answer = chatter.getAnswer(saying);
+        for (String str : variants) {
+            ok |= str.equals(this.answer);
+        }
+        Assert.assertTrue("The result doesn't match with expected variants",
+                ok);
+    }
 }
