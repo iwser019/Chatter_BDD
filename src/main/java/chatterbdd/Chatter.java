@@ -1,5 +1,7 @@
 package chatterbdd;
 
+import java.util.HashMap;
+
 public class Chatter {
 
     // Конструктор
@@ -16,5 +18,9 @@ public class Chatter {
             return "Не понял.";
         }
         return "Не понял.";
+    }
+
+    public void setExactMatchBase(HashMap<String, String> exMatchBase) {
+
     }
 }
