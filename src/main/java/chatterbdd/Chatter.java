@@ -63,10 +63,18 @@ public class Chatter {
         return null;
     }
 
+    /**
+     * Установка базы типичных соответствий
+     * @param typMatchBase Словарь фраз и соответствующих списков ответов
+     */
     public void setTypicalMatchBase(HashMap<String,String[]> typMatchBase) {
 
     }
 
+    /**
+     * Получение базы типичных соответствий
+     * @return Словарь фраз и соответствующих списков ответов
+     */
     public HashMap<String,String[]> getTypicalMatchBase() {
         HashMap<String, String[]> mb = new HashMap<>();
         mb.put("Не знаю.", new String[]{
@@ -77,12 +85,22 @@ public class Chatter {
         return mb;
     }
 
+    /**
+     * Проверка на наличие типичных соответствий
+     * @param saying Исходная реплика
+     * @return Результат проверки
+     */
     public boolean hasTypicalMatch(String saying) {
         if (saying.equals("Не знаю."))
             return true;
         return false;
     }
 
+    /**
+     * Разбиение текста на предложения
+     * @param s Исходный текст
+     * @return Массив предложений
+     */
     public String[] splitIntoSentences(String s) {
         if (s == null)
             return new String[]{};
