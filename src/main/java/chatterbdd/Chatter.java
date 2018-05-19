@@ -84,6 +84,8 @@ public class Chatter {
     }
 
     public String[] splitIntoSentences(String s) {
+        if (s == null)
+            return new String[]{};
         if (s.equals("фывапролджэ?"))
             return new String[]{"фывапролджэ?"};
         return new String[]{"Не знаю.", "Как-то не думал."};
