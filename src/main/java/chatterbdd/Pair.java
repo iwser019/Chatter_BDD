@@ -29,8 +29,8 @@ public class Pair<X, Y> {
      * Получение первого элемента
      * @return Первый элемент
      */
-    public int getX() {
-        return 1;
+    public X getX() {
+        return x;
     }
 
     /**
