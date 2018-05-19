@@ -30,4 +30,8 @@ public class Chatter {
         mb.put("Сколько будет два плюс два?", "Четыре");
         return mb;
     }
+
+    public boolean hasExactMatch(String saying) {
+        return true;
+    }
 }
