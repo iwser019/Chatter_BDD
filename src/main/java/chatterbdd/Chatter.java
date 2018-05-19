@@ -165,7 +165,7 @@ public class Chatter {
      * @return Результат проверки
      */
     public boolean hasExactMatchSub(String saying) {
-        return (getExactMatchSub(saying) == null);
+        return (getExactMatchSub(saying) != null);
     }
 
     /**
@@ -177,8 +177,8 @@ public class Chatter {
         if (saying == null)
             return null;
         ArrayList<String> variants = new ArrayList<>();
-        String[] vals = new String[exactMatchBase.values().size()];
-        vals = exactMatchBase.values().toArray(vals);
+        String[] vals = new String[exactMatchBase.keySet().size()];
+        vals = exactMatchBase.keySet().toArray(vals);
         String[] srcWords = splitIntoWords(saying);
         for (String val : vals) {
             int wordCount = 0;
@@ -195,7 +195,11 @@ public class Chatter {
                 wordCount = 0;
             }
         }
-        return (variants.size() > 0 ? variants.get(randomizer.nextInt(variants.size())) : null);
+        return (variants.size() > 0
+                ? exactMatchBase.get(variants.size() > 1
+                    ? variants.get(randomizer.nextInt(variants.size() - 1))
+                    : variants.get(0))
+                : null);
     }
 
     /**
