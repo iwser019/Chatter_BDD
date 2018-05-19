@@ -138,6 +138,6 @@ public class ChatterStepdef {
 
     @Then("^The program should not have a typical phrase match for the saying$")
     public void theProgramShouldNotHaveATypicalPhraseMatchForTheSaying() throws Throwable {
-        Assert.assertFalse("There's an typical match for it", chatter.hasTypicalMatch(saying));
+        Assert.assertFalse("There's a typical match for it", chatter.hasTypicalMatch(saying));
     }
 }

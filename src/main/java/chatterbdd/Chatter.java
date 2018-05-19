@@ -78,6 +78,8 @@ public class Chatter {
     }
 
     public boolean hasTypicalMatch(String saying) {
-        return true;
+        if (saying.equals("Не знаю."))
+            return true;
+        return false;
     }
 }
