@@ -38,10 +38,7 @@ public class Chatter {
      * @return Словарь точных соответствий для фраз
      */
     public HashMap getExactMatchBase() {
-        HashMap<String, String> mb = new HashMap<>();
-        mb.put("Ты спишь?", "Нет");
-        mb.put("Сколько будет два плюс два?", "Четыре");
-        return mb;
+        return this.exactMatchBase;
     }
 
     /**
