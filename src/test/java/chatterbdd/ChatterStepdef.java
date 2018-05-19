@@ -84,4 +84,9 @@ public class ChatterStepdef {
     public void theProgramShouldHaveTheExactMatchForSayingLike(String arg0) throws Throwable {
         Assert.assertTrue(chatter.hasExactMatch(arg0));
     }
+
+    @Then("^The program should not have the exact match for saying like \"([^\"]*)\"$")
+    public void theProgramShouldNotHaveTheExactMatchForSayingLike(String arg0) throws Throwable {
+        Assert.assertFalse(chatter.hasExactMatch(arg0));
+    }
 }
