@@ -37,7 +37,7 @@ public class Pair<X, Y> {
      * Получение второго элемента
      * @return Второй элемент
      */
-    public int getY() {
-        return 2;
+    public Y getY() {
+        return y;
     }
 }
