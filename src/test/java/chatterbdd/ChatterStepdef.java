@@ -57,22 +57,22 @@ public class ChatterStepdef {
 
     @And("^I define an exact match like \"([^\"]*)\" with \"([^\"]*)\"$")
     public void iDefineAnExactMatchLikeWith(String arg0, String arg1) throws Throwable {
-        exMatchBase.put(arg0, arg1);
+        this.exMatchBase.put(arg0, arg1);
     }
 
     @And("^I set these exact matches up$")
     public void iSetTheseExactMatchesUp() throws Throwable {
-        chatter.setExactMatchBase(exMatchBase);
+        this.chatter.setExactMatchBase(this.exMatchBase);
     }
 
     @Then("^The program should have the same exact matches as set before$")
     public void theProgramShouldHaveTheSameExactMatchesAsSetBefore() throws Throwable {
-        HashMap exMatchBaseNew = chatter.getExactMatchBase();
+        HashMap exMatchBaseNew = this.chatter.getExactMatchBase();
         boolean ok = true;
         ok &= Arrays.equals(exMatchBaseNew.keySet().toArray(),
                 exMatchBase.keySet().toArray());
         if (ok) {
-            for (String str : (String[]) exMatchBase.keySet().toArray()) {
+            for (Object str : exMatchBase.keySet().toArray()) {
                 ok &= exMatchBaseNew.get(str).equals(exMatchBase.get(str));
             }
         }

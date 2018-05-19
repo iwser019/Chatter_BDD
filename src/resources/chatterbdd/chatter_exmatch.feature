@@ -1,7 +1,7 @@
 Feature: Saying exact match support
 
   Scenario:
-    Given: A have a chat program
+    Given I have a chat program
     When I need an exact match support
     And I define an exact match like "Ты спишь?" with "Нет"
     And I define an exact match like "Сколько будет два плюс два?" with "Четыре"
