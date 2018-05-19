@@ -22,6 +22,7 @@ public class ChatterStepdef {
     private HashMap<String, String> exMatchBase;
     private HashMap<String, String[]> typMatchBase;
     private ArrayList<Pair<String[], String>> kwMatchBase;
+    private String[] genBase;
     private Pair<Integer, Integer> pair;
 
     @Given("^I have a chat program$")
@@ -323,5 +324,24 @@ public class ChatterStepdef {
             ok |= str.equals(this.answer);
         }
         Assert.assertTrue("The keyword match is incorrect or doesn't exist", ok);
+    }
+
+    @When("^I define some generic phrases$")
+    public void iDefineSomeGenericPhrases() throws Throwable {
+        genBase = new String[]{
+                "Ясно...",
+                "Понятно..."
+        };
+    }
+
+    @And("^I set these generic phrases up$")
+    public void iSetTheseGenericPhrasesUp() throws Throwable {
+        chatter.setGenericBase(genBase);
+    }
+
+    @Then("^The program should have same generic phrases base as set before$")
+    public void theProgramShouldHaveSameGenericPhrasesBaseAsSetBefore() throws Throwable {
+        Assert.assertTrue("Arrays don't match",
+                Arrays.equals(genBase, chatter.getGenericBase()));
     }
 }
