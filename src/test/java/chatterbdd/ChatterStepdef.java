@@ -6,6 +6,7 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import cucumber.api.java.hu.Ha;
 import org.junit.Assert;
 
 import java.util.Arrays;
@@ -17,6 +18,7 @@ public class ChatterStepdef {
     private String saying;
     private String answer;
     private HashMap<String, String> exMatchBase;
+    private HashMap<String, String[]> typMatchBase;
 
     @Given("^I have a chat program$")
     public void iHaveAChatProgram() throws Throwable {
@@ -93,5 +95,39 @@ public class ChatterStepdef {
     @Then("^The exact match for \"([^\"]*)\" should be \"([^\"]*)\"$")
     public void theExactMatchForShouldBe(String arg0, String arg1) throws Throwable {
         Assert.assertEquals(arg1, chatter.getExactMatch(arg0));
+    }
+
+    @When("^I need a typical match support$")
+    public void iNeedATypicalMatchSupport() throws Throwable {
+        this.typMatchBase = new HashMap<>();
+    }
+
+    @And("^I define some typical phrases$")
+    public void iDefineSomeTypicalPhrases() throws Throwable {
+        this.typMatchBase.put("Не знаю.", new String[]{
+                "Я тоже не знаю.",
+                "А почему?",
+                "Жаль."
+        });
+    }
+
+    @And("^I set these typical phrases up$")
+    public void iSetTheseTypicalPhrasesUp() throws Throwable {
+        chatter.setTypicalMatchBase(typMatchBase);
+    }
+
+    @Then("^The program should have the same typical matches as set before$")
+    public void theProgramShouldHaveTheSameTypicalMatchesAsSetBefore() throws Throwable {
+        HashMap<String, String[]> typMatchBaseNew = chatter.getTypicalMatchBase();
+        boolean ok = true;
+        ok &= Arrays.equals(typMatchBase.keySet().toArray(),
+                typMatchBaseNew.keySet().toArray());
+        if (ok) {
+            for (String str : typMatchBase.keySet()) {
+                ok &= Arrays.equals(typMatchBase.get(str),
+                        typMatchBaseNew.get(str));
+            }
+        }
+        Assert.assertTrue("Typical match bases have mismatches", ok);
     }
 }
