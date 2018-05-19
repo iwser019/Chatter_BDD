@@ -21,7 +21,8 @@ public class Pair<X, Y> {
      * @param y Второй элемент
      */
     public Pair(X x, Y y) {
-
+        this.x = x;
+        this.y = y;
     }
 
     /**
