@@ -9,6 +9,6 @@ Feature: Chatter
 
   Scenario:
     Given I have a chat program
-    When I decided to ask something like 'Ты спишь?'
+    When I decided to ask something like "Ты спишь?"
     And I say what I want
-    Then The program should give an answer like 'Нет'
+    Then The program should give an answer like "Нет"
