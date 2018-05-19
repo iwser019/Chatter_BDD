@@ -164,4 +164,8 @@ public class Chatter {
             return true;
         return false;
     }
+
+    public String getExactMatchSub(String saying) {
+        return "Нет";
+    }
 }
