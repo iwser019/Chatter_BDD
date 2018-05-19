@@ -87,9 +87,7 @@ public class Chatter {
      * @return Результат проверки
      */
     public boolean hasTypicalMatch(String saying) {
-        if (saying.equals("Не знаю."))
-            return true;
-        return false;
+        return this.typicalMatchBase.containsKey(saying);
     }
 
     /**
