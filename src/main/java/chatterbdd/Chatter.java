@@ -212,4 +212,8 @@ public class Chatter {
             return new String[]{};
         return s.split("[\\s\\t]+");
     }
+
+    public void setKeywordMatchBase(ArrayList<Pair<String[],String>> kwMatchBase) {
+
+    }
 }
