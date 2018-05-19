@@ -15,3 +15,11 @@ Feature: Saying exact match support
     And I define an exact match like "Сколько будет два плюс два?" with "Четыре"
     And I set these exact matches up
     Then The program should have the exact match for saying like "Ты спишь?"
+
+  Scenario: A saying without an exact match
+    Given I have a chat program
+    When I need an exact match support
+    And I define an exact match like "Ты спишь?" with "Нет"
+    And I define an exact match like "Сколько будет два плюс два?" with "Четыре"
+    And I set these exact matches up
+    Then The program should not have the exact match for saying like "фывапролджэ"
