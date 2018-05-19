@@ -149,4 +149,12 @@ public class ChatterStepdef {
                         "Как-то не думал."
                 }, chatter.splitIntoSentences("Не знаю. Как-то не думал")));
     }
+
+    @Then("^The program should not split a single sentence into a sentences$")
+    public void theProgramShouldNotSplitASingleSentenceIntoASentences() throws Throwable {
+        Assert.assertTrue("The split results don't match",
+                Arrays.equals(new String[]{
+                        "фывапролджэ?"
+                }, chatter.splitIntoSentences("фывапролджэ?")));
+    }
 }
