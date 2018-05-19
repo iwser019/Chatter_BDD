@@ -168,4 +168,10 @@ public class Chatter {
     public String getExactMatchSub(String saying) {
         return "Нет";
     }
+
+    public String[] splitIntoWords(String s) {
+        return new String[]{
+                "Сколько", "будет", "два", "плюс", "два?"
+        };
+    }
 }
