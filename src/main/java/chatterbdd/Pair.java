@@ -9,4 +9,8 @@ public class Pair<X, Y> {
     public int getX() {
         return 1;
     }
+
+    public int getY() {
+        return 2;
+    }
 }
