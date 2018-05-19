@@ -158,4 +158,8 @@ public class Chatter {
         }
         return null;
     }
+
+    public boolean hasExactMatchSub(String saying) {
+        return true;
+    }
 }
