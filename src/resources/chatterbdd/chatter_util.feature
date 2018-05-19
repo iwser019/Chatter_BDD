@@ -19,3 +19,7 @@ Feature: Utility functions
   Scenario: Single word processing
     Given I have a chat program
     Then The program should not try to split single word
+
+  Scenario: Null string processing for word splitting
+    Given I have a chat program
+    Then The program should not try to split null text into words
