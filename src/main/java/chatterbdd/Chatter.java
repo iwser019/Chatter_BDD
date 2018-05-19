@@ -109,6 +109,11 @@ public class Chatter {
         return new String[]{"Не знаю.", "Как-то не думал."};
     }
 
+    /**
+     * Получение ответа на типичную фразу
+     * @param saying Текст исходной фразы
+     * @return Текст ответа
+     */
     public String getTypicalMatch(String saying) {
         return "А почему?";
     }
