@@ -248,6 +248,27 @@ public class Chatter {
      * @return Результат проверки
      */
     public String getKeywordMatch(String saying) {
-        return "Я тоже люблю блины";
+        ArrayList<String> variants = new ArrayList<>();
+        String[] srcWords = splitIntoWords(saying);
+        for (Pair<String[], String> pair : keywordMatchBase) {
+            int wordCounter = 0;
+            int wordSetSize = pair.getX().length;
+            for (String keyword : pair.getX()) {
+                for (String srcWord : srcWords) {
+                    if (keyword.equals(srcWord)) {
+                        wordCounter++;
+                        break;
+                    }
+                }
+            }
+            if (wordCounter == wordSetSize) {
+                variants.add(pair.getY());
+            }
+        }
+        return (variants.size() > 0
+                ? (variants.size() > 1
+                ? variants.get(randomizer.nextInt(variants.size() - 1))
+                : variants.get(0))
+                : null);
     }
 }
