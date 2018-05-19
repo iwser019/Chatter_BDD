@@ -235,6 +235,8 @@ public class Chatter {
     }
 
     public boolean hasKeywordMatch(String saying) {
-        return true;
+        if (saying.equals("Я этого не знаю."))
+            return true;
+        return false;
     }
 }
