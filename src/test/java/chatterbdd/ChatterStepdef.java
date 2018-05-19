@@ -140,4 +140,13 @@ public class ChatterStepdef {
     public void theProgramShouldNotHaveATypicalPhraseMatchForTheSaying() throws Throwable {
         Assert.assertFalse("There's a typical match for it", chatter.hasTypicalMatch(saying));
     }
+
+    @Then("^The program should be able to split phrases properly$")
+    public void theProgramShouldBeAbleToSplitPhrasesProperly() throws Throwable {
+        Assert.assertTrue("The split results don't match",
+                Arrays.equals(new String[]{
+                        "Не знаю.",
+                        "Как-то не думал."
+                }, chatter.splitIntoSentences("Не знаю. Как-то не думал")));
+    }
 }
