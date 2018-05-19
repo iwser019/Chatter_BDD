@@ -82,4 +82,8 @@ public class Chatter {
             return true;
         return false;
     }
+
+    public String[] splitIntoSentences(String s) {
+        return new String[]{"Не знаю.", "Как-то не думал."};
+    }
 }
