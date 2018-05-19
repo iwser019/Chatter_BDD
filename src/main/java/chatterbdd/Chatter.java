@@ -165,9 +165,7 @@ public class Chatter {
      * @return Результат проверки
      */
     public boolean hasExactMatchSub(String saying) {
-        if (saying.equals("Ты спишь? Только честно..."))
-            return true;
-        return false;
+        return (getExactMatchSub(saying) == null);
     }
 
     /**
