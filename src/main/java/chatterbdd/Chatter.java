@@ -32,6 +32,8 @@ public class Chatter {
         {
             if (saying.equals("Ты спишь?"))
                 return "Нет";
+            if (saying.equals("Привет"))
+                return "Привет!";
             return "Не понял.";
         }
         return "Не понял.";
