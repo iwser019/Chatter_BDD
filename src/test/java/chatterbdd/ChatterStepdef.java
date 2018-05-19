@@ -130,4 +130,9 @@ public class ChatterStepdef {
         }
         Assert.assertTrue("Typical match bases have mismatches", ok);
     }
+
+    @Then("^The program should have a typical phrase match for the saying$")
+    public void theProgramShouldHaveATypicalPhraseMatchForTheSaying() throws Throwable {
+        Assert.assertTrue(chatter.hasTypicalMatch(saying));
+    }
 }
