@@ -7,6 +7,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import cucumber.api.java.hu.Ha;
+import javafx.util.Pair;
 import org.junit.Assert;
 
 import java.lang.reflect.Array;
@@ -20,6 +21,7 @@ public class ChatterStepdef {
     private String answer;
     private HashMap<String, String> exMatchBase;
     private HashMap<String, String[]> typMatchBase;
+    private Pair<Integer, Integer> pair;
 
     @Given("^I have a chat program$")
     public void iHaveAChatProgram() throws Throwable {
@@ -226,5 +228,15 @@ public class ChatterStepdef {
     public void theProgramShouldNotTryToSplitNullTextIntoWords() throws Throwable {
         Assert.assertTrue("The split result doesn't match",
                 Arrays.equals(new String[]{}, chatter.splitIntoWords(null)));
+    }
+
+    @Given("^I have a pair that consists of (\\d+) and (\\d+)$")
+    public void iHaveAPairThatConsistsOfAnd(int arg0, int arg1) throws Throwable {
+        this.pair = new Pair<>(arg0, arg1);
+    }
+
+    @Then("^The first element should be (\\d+)$")
+    public void theFirstElementShouldBe(int arg0) throws Throwable {
+        Assert.assertEquals(arg0, pair.getX());
     }
 }
