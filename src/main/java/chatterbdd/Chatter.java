@@ -108,4 +108,8 @@ public class Chatter {
             return new String[]{"фывапролджэ?"};
         return new String[]{"Не знаю.", "Как-то не думал."};
     }
+
+    public String getTypicalMatch(String saying) {
+        return "А почему?";
+    }
 }
