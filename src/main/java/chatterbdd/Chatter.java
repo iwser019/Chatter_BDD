@@ -239,4 +239,8 @@ public class Chatter {
             return true;
         return false;
     }
+
+    public String getKeywordMatch(String saying) {
+        return "Я тоже люблю блины";
+    }
 }
