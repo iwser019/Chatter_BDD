@@ -56,6 +56,10 @@ public class Chatter {
      * @return Текст фразы, соответствующей исходной
      */
     public String getExactMatch(String saying) {
-        return "Нет";
+        if (saying == null)
+            return null;
+        if (hasExactMatch(saying))
+            return exactMatchBase.get(saying);
+        return null;
     }
 }
