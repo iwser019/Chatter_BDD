@@ -289,9 +289,6 @@ public class Chatter {
      * @return Массив общих реплик
      */
     public String[] getGenericBase() {
-        return new String[]{
-                "Ясно...",
-                "Понятно..."
-        };
+        return this.genericBase;
     }
 }
