@@ -114,6 +114,11 @@ public class ChatterStepdef {
                 "А почему?",
                 "Жаль."
         });
+        this.typMatchBase.put("Привет", new String[]{
+                "Привет!",
+                "Здорово!",
+                "Здравствуй"
+        });
     }
 
     @And("^I set these typical phrases up$")
