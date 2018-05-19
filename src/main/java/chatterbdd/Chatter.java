@@ -28,15 +28,35 @@ public class Chatter {
      * @return Текст ответа
      */
     public String getAnswer(String saying) {
+        String answer = null;
         if (saying != null)
         {
-            if (saying.equals("Ты спишь?"))
-                return "Нет";
-            if (saying.equals("Привет"))
-                return "Привет!";
-            return "Не понял.";
+            if (hasExactMatch(saying))
+                answer = getExactMatch(saying);
+            else {
+                if (hasTypicalMatch(saying))
+                    answer = getTypicalMatch(saying);
+                else {
+                    answer = getExactMatchSub(saying);
+                    if (answer == null) {
+                        answer = getKeywordMatch(saying);
+                        if (answer == null) {
+                            if (genericBase.length > 0) {
+                                if (genericBase.length > 1) {
+                                    answer = genericBase[randomizer.nextInt(genericBase.length - 1)];
+                                } else {
+                                    answer = genericBase[0];
+                                }
+                            } else
+                                answer = "Не понял.";
+                        }
+                    }
+                }
+            }
         }
-        return "Не понял.";
+        else
+            answer = "Не понял.";
+        return answer;
     }
 
     /**
