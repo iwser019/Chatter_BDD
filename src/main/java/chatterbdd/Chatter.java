@@ -78,13 +78,7 @@ public class Chatter {
      * @return Словарь фраз и соответствующих списков ответов
      */
     public HashMap<String,String[]> getTypicalMatchBase() {
-        HashMap<String, String[]> mb = new HashMap<>();
-        mb.put("Не знаю.", new String[]{
-                "Я тоже не знаю.",
-                "А почему?",
-                "Жаль."
-        });
-        return mb;
+        return this.typicalMatchBase;
     }
 
     /**
