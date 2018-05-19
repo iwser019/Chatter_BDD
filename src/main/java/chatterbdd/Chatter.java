@@ -49,4 +49,8 @@ public class Chatter {
     public boolean hasExactMatch(String saying) {
         return this.exactMatchBase.containsKey(saying);
     }
+
+    public String getExactMatch(String saying) {
+        return "Нет";
+    }
 }
