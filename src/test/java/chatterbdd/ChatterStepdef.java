@@ -10,6 +10,7 @@ import cucumber.api.java.hu.Ha;
 import org.junit.Assert;
 
 import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 
@@ -20,6 +21,7 @@ public class ChatterStepdef {
     private String answer;
     private HashMap<String, String> exMatchBase;
     private HashMap<String, String[]> typMatchBase;
+    private ArrayList<Pair<String[], String>> kwMatchBase;
     private Pair<Integer, Integer> pair;
 
     @Given("^I have a chat program$")
@@ -236,11 +238,64 @@ public class ChatterStepdef {
 
     @Then("^The first element should be (\\d+)$")
     public void theFirstElementShouldBe(int arg0) throws Throwable {
-        Assert.assertEquals(arg0, pair.getX());
+        Assert.assertEquals(arg0, (int) pair.getX());
     }
 
     @Then("^The second element should be (\\d+)$")
     public void theSecondElementShouldBe(int arg0) throws Throwable {
-        Assert.assertEquals(arg0, pair.getY());
+        Assert.assertEquals(arg0, (int) pair.getY());
+    }
+
+    @When("^I need a keyword match support$")
+    public void iNeedAKeywordMatchSupport() throws Throwable {
+        kwMatchBase = new ArrayList<>();
+    }
+
+    @And("^I define some keywords$")
+    public void iDefineSomeKeywords() throws Throwable {
+        kwMatchBase.add(new Pair<>(
+                new String[]{
+                        "не",
+                        "знаю."},
+                "А что ты вообще знаешь?")
+        );
+        kwMatchBase.add(new Pair<>(
+                new String[]{
+                        "блин"
+                },
+                "Я тоже люблю блины"
+        ));
+    }
+
+    @And("^I set these keywords up$")
+    public void iSetTheseKeywordsUp() throws Throwable {
+        chatter.setKeywordMatchBase(kwMatchBase);
+    }
+
+    @Then("^The program should have same keyword match base as set before$")
+    public void theProgramShouldHaveSameKeywordMatchBaseAsSetBefore() throws Throwable {
+        ArrayList<Pair<String[], String>> kwMatchBaseNew = chatter.getKeywordMatchBase();
+        boolean ok = true;
+        ok &= (kwMatchBase.size() == kwMatchBaseNew.size());
+        if (ok) {
+            int sizeInt = kwMatchBase.size();
+            for (int i = 0; i < sizeInt; i++)
+            {
+                Pair<String[], String> pairSrc = kwMatchBase.get(i);
+                Pair<String[], String> pairDest = kwMatchBaseNew.get(i);
+                if (!pairSrc.getY().equals(pairDest.getY())) {
+                    ok = false;
+                    break;
+                }
+                String[] kwSrc = pairSrc.getX();
+                String[] kwDest = pairDest.getX();
+                ok &= Arrays.equals(kwSrc, kwDest);
+                if (!ok)
+                {
+                    break;
+                }
+            }
+        }
+        Assert.assertTrue("Used keyword base doesn't match", ok);
     }
 }
