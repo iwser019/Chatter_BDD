@@ -177,4 +177,9 @@ public class ChatterStepdef {
         Assert.assertTrue("The result doesn't match with expected variants",
                 ok);
     }
+
+    @Then("^The program should have exact match for some words from phrase like \"([^\"]*)\"$")
+    public void theProgramShouldHaveExactMatchForSomeWordsFromPhraseLike(String arg0) throws Throwable {
+        Assert.assertTrue("There are no match for this", chatter.hasExactMatchSub(arg0));
+    }
 }
