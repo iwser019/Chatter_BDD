@@ -76,8 +76,12 @@ public class ChatterStepdef {
                 ok &= exMatchBaseNew.get(str).equals(exMatchBase.get(str));
             }
         }
-        Assert.assertEquals(true, ok);
+        Assert.assertTrue(ok);
     }
 
 
+    @Then("^The program should have the exact match for saying like \"([^\"]*)\"$")
+    public void theProgramShouldHaveTheExactMatchForSayingLike(String arg0) throws Throwable {
+        Assert.assertTrue(chatter.hasExactMatch(arg0));
+    }
 }
