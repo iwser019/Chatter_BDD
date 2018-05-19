@@ -23,4 +23,11 @@ public class Chatter {
     public void setExactMatchBase(HashMap<String, String> exMatchBase) {
 
     }
+
+    public HashMap getExactMatchBase() {
+        HashMap<String, String> mb = new HashMap<>();
+        mb.put("Ты спишь?", "Нет");
+        mb.put("Сколько будет два плюс два?", "Четыре");
+        return mb;
+    }
 }
