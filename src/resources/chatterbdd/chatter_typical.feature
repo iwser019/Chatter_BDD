@@ -22,3 +22,11 @@ Feature: Typical phrase match support
     And I set these typical phrases up
     And I decided to ask something like "фывапролджэ"
     Then The program should not have a typical phrase match for the saying
+
+  Scenario: Getting a match for a typical phrase
+    Given I have a chat program
+    When I need a typical match support
+    And I define some typical phrases
+    And I set these typical phrases up
+    And I decided to ask something like "Не знаю."
+    Then The program should give a typical answer for it
