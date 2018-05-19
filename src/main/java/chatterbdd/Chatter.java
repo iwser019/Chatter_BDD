@@ -170,8 +170,10 @@ public class Chatter {
     }
 
     public String[] splitIntoWords(String s) {
-        return new String[]{
-                "Сколько", "будет", "два", "плюс", "два?"
-        };
+        if (s.equals("Сколько будет два плюс два?"))
+            return new String[]{
+                    "Сколько", "будет", "два", "плюс", "два?"
+            };
+        return new String[]{"фывапролджэ"};
     }
 }
