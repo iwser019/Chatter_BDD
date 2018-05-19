@@ -272,10 +272,18 @@ public class Chatter {
                 : null);
     }
 
+    /**
+     * Установка базы общих реплик
+     * @param genBase Массив общих реплик
+     */
     public void setGenericBase(String[] genBase) {
 
     }
 
+    /**
+     * Получение базы общих реплик
+     * @return Массив общих реплик
+     */
     public String[] getGenericBase() {
         return new String[]{
                 "Ясно...",
