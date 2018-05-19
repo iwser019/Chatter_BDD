@@ -9,7 +9,11 @@ Feature: Chatter basic functions
 
   Scenario:
     Given I have a chat program
-    When I decided to ask something like "Ты спишь?"
+    When I need an exact match support
+    And I define an exact match like "Ты спишь?" with "Нет"
+    And I define an exact match like "Сколько будет два плюс два?" with "Четыре"
+    And I set these exact matches up
+    And I decided to ask something like "Ты спишь?"
     And I say what I want
     Then The program should give an answer like "Нет"
 
