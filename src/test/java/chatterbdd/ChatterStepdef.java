@@ -9,6 +9,7 @@ import cucumber.api.java.en.When;
 import cucumber.api.java.hu.Ha;
 import org.junit.Assert;
 
+import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.HashMap;
 
@@ -219,5 +220,11 @@ public class ChatterStepdef {
         Assert.assertTrue("The split result doesn't match",
                 Arrays.equals(new String[]{"фывапролджэ"},
                         chatter.splitIntoWords("фывапролджэ")));
+    }
+
+    @Then("^The program should not try to split null text into words$")
+    public void theProgramShouldNotTryToSplitNullTextIntoWords() throws Throwable {
+        Assert.assertTrue("The split result doesn't match",
+                Arrays.equals(new String[]{}, chatter.splitIntoWords(null)));
     }
 }
