@@ -157,4 +157,10 @@ public class ChatterStepdef {
                         "фывапролджэ?"
                 }, chatter.splitIntoSentences("фывапролджэ?")));
     }
+
+    @Then("^The program should not split a null text$")
+    public void theProgramShouldNotSplitANullText() throws Throwable {
+        Assert.assertTrue("Attempt of splitting of a null text",
+                Arrays.equals(new String[]{}, chatter.splitIntoSentences(null)));
+    }
 }
