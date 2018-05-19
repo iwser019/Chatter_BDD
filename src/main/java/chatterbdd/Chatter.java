@@ -50,6 +50,11 @@ public class Chatter {
         return this.exactMatchBase.containsKey(saying);
     }
 
+    /**
+     * Получение точного соответствия
+     * @param saying Текст исходной фразы
+     * @return Текст фразы, соответствующей исходной
+     */
     public String getExactMatch(String saying) {
         return "Нет";
     }
