@@ -23,3 +23,7 @@ Feature: Utility functions
   Scenario: Null string processing for word splitting
     Given I have a chat program
     Then The program should not try to split null text into words
+
+  Scenario: Working with pair objects
+    Given I nave a pair that consists of 1 and 2
+    Then The first element should be 1
