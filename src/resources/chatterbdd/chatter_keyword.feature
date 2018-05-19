@@ -20,3 +20,10 @@ Feature: Keyword-based match support
     And I define some keywords
     And I set these keywords up
     Then The program should not have keyword match for phrase like "А вот я знаю."
+
+  Scenario: Getting a keyword-based match
+    Given I have a chat program
+    When I need a keyword match support
+    And I define some keywords
+    And I set these keywords up
+    Then The program should give a keyword-based match
