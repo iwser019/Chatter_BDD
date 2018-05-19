@@ -233,4 +233,8 @@ public class Chatter {
         ));
         return kwMatchBase;
     }
+
+    public boolean hasKeywordMatch(String saying) {
+        return true;
+    }
 }
