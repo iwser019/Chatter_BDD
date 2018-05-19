@@ -147,7 +147,7 @@ public class ChatterStepdef {
                 Arrays.equals(new String[]{
                         "Не знаю.",
                         "Как-то не думал."
-                }, chatter.splitIntoSentences("Не знаю. Как-то не думал")));
+                }, chatter.splitIntoSentences("Не знаю. Как-то не думал.")));
     }
 
     @Then("^The program should not split a single sentence into a sentences$")
