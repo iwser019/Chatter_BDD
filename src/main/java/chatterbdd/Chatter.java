@@ -4,9 +4,10 @@ import java.util.HashMap;
 
 public class Chatter {
 
+    private HashMap<String, String> exactMatchBase;
     // Конструктор
     public Chatter() {
-
+        exactMatchBase = new HashMap<>();
     }
 
     /**
@@ -29,7 +30,7 @@ public class Chatter {
      * @param exMatchBase Словарь точных соответствий для фраз
      */
     public void setExactMatchBase(HashMap<String, String> exMatchBase) {
-
+        this.exactMatchBase = exMatchBase;
     }
 
     /**
