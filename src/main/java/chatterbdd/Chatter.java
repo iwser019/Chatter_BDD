@@ -47,9 +47,6 @@ public class Chatter {
      * @return Результат проверки
      */
     public boolean hasExactMatch(String saying) {
-        if (saying.equals("Ты спишь?")
-                || saying.equals("Сколько будет два плюс два?"))
-            return true;
-        return false;
+        return this.exactMatchBase.containsKey(saying);
     }
 }
