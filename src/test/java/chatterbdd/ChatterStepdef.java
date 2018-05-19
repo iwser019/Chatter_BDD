@@ -163,4 +163,18 @@ public class ChatterStepdef {
         Assert.assertTrue("Attempt of splitting of a null text",
                 Arrays.equals(new String[]{}, chatter.splitIntoSentences(null)));
     }
+
+    @Then("^The program should give a typical answer for it$")
+    public void theProgramShouldGiveATypicalAnswerForIt() throws Throwable {
+        boolean ok  = false;
+        String[] variants = typMatchBase.get(saying);
+        if (variants == null)
+            variants = new String[0];
+        this.answer = chatter.getTypicalMatch(saying);
+        for (String str : variants) {
+            ok |= str.equals(this.answer);
+        }
+        Assert.assertTrue("The result doesn't match with expected variants",
+                ok);
+    }
 }
