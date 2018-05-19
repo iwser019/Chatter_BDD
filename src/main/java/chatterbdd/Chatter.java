@@ -9,7 +9,11 @@ public class Chatter {
 
     }
 
-
+    /**
+     * Получение ответа на фразу
+     * @param saying Текст исходной фразы
+     * @return Текст ответа
+     */
     public String getAnswer(String saying) {
         if (saying != null)
         {
@@ -20,10 +24,18 @@ public class Chatter {
         return "Не понял.";
     }
 
+    /**
+     * Установка базы точных соответствий
+     * @param exMatchBase Словарь точных соответствий для фраз
+     */
     public void setExactMatchBase(HashMap<String, String> exMatchBase) {
 
     }
 
+    /**
+     * Получение базы точных соответствий
+     * @return Словарь точных соответствий для фраз
+     */
     public HashMap getExactMatchBase() {
         HashMap<String, String> mb = new HashMap<>();
         mb.put("Ты спишь?", "Нет");
@@ -31,6 +43,11 @@ public class Chatter {
         return mb;
     }
 
+    /**
+     * Проверка на наличие точного соответствия
+     * @param saying Текст исходной фразы
+     * @return Результат проверки
+     */
     public boolean hasExactMatch(String saying) {
         if (saying.equals("Ты спишь?")
                 || saying.equals("Сколько будет два плюс два?"))
