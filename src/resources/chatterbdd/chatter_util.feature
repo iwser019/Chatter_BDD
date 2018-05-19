@@ -27,3 +27,7 @@ Feature: Utility functions
   Scenario: Working with pair objects
     Given I have a pair that consists of 1 and 2
     Then The first element should be 1
+
+  Scenario: Working with pair objects (part 2)
+    Given I have a pair that consists of 1 and 2
+    Then The second element should be 2
