@@ -1,5 +1,6 @@
 package chatterbdd;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
@@ -101,9 +102,46 @@ public class Chatter {
     public String[] splitIntoSentences(String s) {
         if (s == null)
             return new String[]{};
-        if (s.equals("фывапролджэ?"))
-            return new String[]{"фывапролджэ?"};
-        return new String[]{"Не знаю.", "Как-то не думал."};
+        ArrayList<String> result = new ArrayList<>();
+        int size = s.length();
+        int ptr = 0;
+        int ptrStart = 0;
+        char currChar = 0;
+        boolean atEnd = false;
+        boolean finalized = false;
+        while (!atEnd) {
+            if (ptr >= size) {
+                atEnd = true;
+                break;
+            }
+            currChar = s.charAt(ptr);
+            if (currChar == '.' || currChar == '!' || currChar == '?') {
+                if ((ptr + 1) < size) {
+                    if (s.charAt(ptr + 1) == ' ') {
+                        result.add(s.substring(ptrStart, ptr + 1));
+                        if ((ptr + 2) < size) {
+                            ptrStart = ptr + 2;
+                            ptr = ptr + 2;
+                        } else {
+                            finalized = true;
+                            atEnd = true;
+                        }
+                    }
+                } else {
+                    result.add(s.substring(ptrStart, ptr + 1));
+                    finalized = true;
+                    atEnd = true;
+                }
+            } else {
+                ptr++;
+            }
+        }
+        if (atEnd && !finalized) {
+            result.add(s.substring(ptrStart, ptr + 1));
+        }
+        String[] resultArr = new String[result.size()];
+        resultArr = result.toArray(resultArr);
+        return resultArr;
     }
 
     /**
