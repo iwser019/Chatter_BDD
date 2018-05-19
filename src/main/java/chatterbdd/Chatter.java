@@ -76,4 +76,8 @@ public class Chatter {
         });
         return mb;
     }
+
+    public boolean hasTypicalMatch(String saying) {
+        return true;
+    }
 }
