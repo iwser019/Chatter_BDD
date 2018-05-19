@@ -189,4 +189,16 @@ public class ChatterStepdef {
         Assert.assertFalse("There's an incorrect match for this",
                 chatter.hasExactMatchSub(arg0));
     }
+
+    @Then("^The program should give a word-based exact match$")
+    public void theProgramShouldGiveAWordBasedExactMatch() throws Throwable {
+        boolean ok = false;
+        String[] variants = new String[exMatchBase.values().size()];
+        variants = exMatchBase.values().toArray(variants);
+        answer = chatter.getExactMatchSub("Ты спишь? Только честно...");
+        for (String str : variants) {
+            ok |= str.equals(answer);
+        }
+        Assert.assertTrue("The match is incorrect or doesn't exist", ok);
+    }
 }
