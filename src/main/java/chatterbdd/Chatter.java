@@ -228,20 +228,7 @@ public class Chatter {
      * @return Список пар (список слов - фраза)
      */
     public ArrayList<Pair<String[],String>> getKeywordMatchBase() {
-        ArrayList<Pair<String[],String>> kwMatchBase = new ArrayList<>();
-        kwMatchBase.add(new Pair<>(
-                new String[]{
-                        "не",
-                        "знаю."},
-                "А что ты вообще знаешь?")
-        );
-        kwMatchBase.add(new Pair<>(
-                new String[]{
-                        "блин,"
-                },
-                "Я тоже люблю блины"
-        ));
-        return kwMatchBase;
+        return this.keywordMatchBase;
     }
 
     /**
