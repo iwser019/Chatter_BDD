@@ -271,4 +271,8 @@ public class Chatter {
                 : variants.get(0))
                 : null);
     }
+
+    public void setGenericBase(String[] genBase) {
+
+    }
 }
